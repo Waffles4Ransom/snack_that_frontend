@@ -13,6 +13,8 @@ import {
 import HomeContainer from './containers/HomeContainer'
 import Snacks from './components/Snacks'
 import LogIn from './components/LogIn'
+import SignUp from './components/SignUp'
+
 
 
 class App extends Component {
@@ -35,11 +37,10 @@ class App extends Component {
 
           <Switch>
             <Route exact path='/' component={HomeContainer} />
+            <Route path='/signup' component={SignUp} />
+            <Route path='/login' component={LogIn} />
             <Route path="/snacks">
               <Snacks snacks={this.props.snacks}/>
-            </Route>
-            <Route path="/login">
-              <LogIn />
             </Route>
             {/* <Route path="/users/:id" component={Profile} /> */}
           </Switch>
