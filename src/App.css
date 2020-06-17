@@ -7,6 +7,8 @@
   overflow: hidden;
 }
 
+/* NavBar Styling */
+
 .nav .link {
   float: left;
   color: #f2f2f2;
@@ -21,6 +23,35 @@
 }
 
 .nav .link:hover {
-  background-color: #ddd;
+  /* background-color: #ddd; */
+  background-color: papayawhip;
   color: black;
+}
+
+/* FORM STYLING  */
+
+input[type=text], [type=password] {
+  width: 40%;
+  padding: 12px 20px;
+  margin: auto ;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 4px solid black;
+  display: block;
+  outline: none;
+}
+
+input[type=text]:focus, [type=password]:focus {
+  background-color: papayawhip;
+}
+
+button {
+  background-color: orchid;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
 }
