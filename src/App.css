@@ -24,7 +24,7 @@
 
 .nav .link:hover {
   /* background-color: #ddd; */
-  background-color: papayawhip;
+  background-color: rgb(248, 192, 169);
   color: black;
 }
 
@@ -42,7 +42,7 @@ input[type=text], [type=password] {
 }
 
 input[type=text]:focus, [type=password]:focus {
-  background-color: papayawhip;
+  background-color: rgb(248, 192, 169);
 }
 
 button {
@@ -54,4 +54,36 @@ button {
   text-decoration: none;
   margin: 4px 2px;
   cursor: pointer;
+}
+
+/* SNACK CARD */
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.snackcard{
+  border: solid black 6px;
+  border-radius: 4px;
+  box-shadow: 8px 10px 10px slategray;
+  height: 300px;
+  width: 230px;
+  padding: 10px;
+  margin: 20px;
+  color: black;
+}
+
+.snackcard:hover {
+  border: mediumorchid solid 6px;
+}
+
+.snackImg {
+  height: auto;
+  max-height: 200px;
+  width: auto;
+  max-width: 200px;
 }
