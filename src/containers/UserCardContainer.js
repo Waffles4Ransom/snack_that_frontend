@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import ReactCardFlip from 'react-card-flip'
 
-import UserCardFront from '../components/UserCardFront'
-import UserCardBack from '../components/UserCardBack'
+import UserCardFront from '../components/users/UserCardFront'
+import UserCardBack from '../components/users/UserCardBack'
 
 export default class UserCardContainer extends Component {
   constructor() {
