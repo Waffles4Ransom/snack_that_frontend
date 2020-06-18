@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import './App.css'
 import { connect } from 'react-redux'
 import { fetchSnacks } from './actions/snackActions'
+import { fetchUsers } from './actions/userActions'
+
 
 import { 
   BrowserRouter as Router,
@@ -12,6 +14,7 @@ import {
 
 import HomeContainer from './containers/HomeContainer'
 import Snacks from './components/Snacks'
+import Users from './components/Users'
 import LogIn from './components/LogIn'
 import SignUp from './components/SignUp'
 
@@ -21,6 +24,7 @@ class App extends Component {
 
   componentDidMount(){
     this.props.fetchSnacks()
+    this.props.fetchUsers()
   }
 
   render() {
@@ -39,6 +43,9 @@ class App extends Component {
             <Route exact path='/' component={HomeContainer} />
             <Route path='/signup' component={SignUp} />
             <Route path='/login' component={LogIn} />
+            <Route path='/users'>
+              <Users users={this.props.users}/>
+            </Route> 
             <Route path="/snacks">
               <Snacks snacks={this.props.snacks}/>
             </Route>
@@ -50,10 +57,17 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = ({snacks}) => ({snacks})
+// const mapStateToProps = ({snacks}) => ({snacks})
+const mapStateToProps = state => ({
+  snacks: state.snacks,
+  users: state.users
+})
 
 const mapDispatchToProps = dispatch => {
-  return {fetchSnacks: () => dispatch(fetchSnacks())}
+  return {
+    fetchSnacks: () => dispatch(fetchSnacks()),
+    fetchUsers: () => dispatch(fetchUsers())
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
