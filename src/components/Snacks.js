@@ -5,10 +5,8 @@ import SnackCardContainer from '../containers/SnackCardContainer'
 
 const Snacks = (props) => {
 
-  const renderSnacks = arr => {
-    // console.log(props.snacks)
-    // return props.snacks.map(snack => <SnackCard key={snack.id} snack={snack}/>)
-    return arr.map(snacks => snacks.map(snack => <SnackCardContainer key={snack.id} snack={snack}/>))
+  const renderSnacks = snacks => {
+    return snacks.map(snack => <SnackCardContainer key={snack.id} snack={snack}/>)
   }
 
   return (

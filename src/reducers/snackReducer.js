@@ -1,7 +1,7 @@
 export default function snackReducer(state = [], action) {
   switch(action.type) {
     case 'GET_SNACKS':
-      return [...state, action.snacks]
+      return [...state.concat(action.snacks)]
       
     default:
       return state
