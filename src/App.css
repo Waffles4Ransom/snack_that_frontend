@@ -87,3 +87,10 @@ button {
   width: auto;
   max-width: 200px;
 }
+
+.userImg {
+  height: auto;
+  max-height: 400px;
+  width: auto;
+  max-width: 400px;
+}

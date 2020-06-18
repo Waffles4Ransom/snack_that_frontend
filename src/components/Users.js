@@ -1,14 +1,18 @@
 import React from 'react'
+import UserCardContainer from '../containers/UserCardContainer'
 
 const Users = (props) => {
   
-  const renderUsers = () => {
-    return props.users.map(u => <p key={u.id}>{u.name}</p>)
+  const renderUsers = users => {
+    return users.map(user => <UserCardContainer key={user.id} user={user}/>)
   }
 
   return (
     <div>
-      {renderUsers()}
+      <h2>Meet the Snackers</h2>
+        <div className="flex-container">
+          {renderUsers(props.users)}
+        </div>
     </div>
   )
 }
