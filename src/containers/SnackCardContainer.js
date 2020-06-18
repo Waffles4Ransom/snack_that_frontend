@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import ReactCardFlip from 'react-card-flip'
 
-import SnackCardFront from '../components/SnackCardFront'
-import SnackCardBack from '../components/SnackCardBack'
+import SnackCardFront from '../components/snacks/SnackCardFront'
+import SnackCardBack from '../components/snacks/SnackCardBack'
 
 export default class SnackCardContainer extends Component {
   constructor() {

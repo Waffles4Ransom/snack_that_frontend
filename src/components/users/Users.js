@@ -1,5 +1,5 @@
 import React from 'react'
-import UserCardContainer from '../containers/UserCardContainer'
+import UserCardContainer from '../../containers/UserCardContainer'
 
 const Users = (props) => {
   

@@ -13,8 +13,8 @@ import {
 } from 'react-router-dom'
 
 import HomeContainer from './containers/HomeContainer'
-import Snacks from './components/Snacks'
-import Users from './components/Users'
+import Snacks from './components/snacks/Snacks'
+import Users from './components/users/Users'
 import LogIn from './components/LogIn'
 import SignUp from './components/SignUp'
 

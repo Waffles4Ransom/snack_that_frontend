@@ -1,7 +1,7 @@
 import React from 'react'
 // import { Link } from 'react-router-dom'
 
-import SnackCardContainer from '../containers/SnackCardContainer'
+import SnackCardContainer from '../../containers/SnackCardContainer'
 
 const Snacks = (props) => {
 
