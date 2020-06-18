@@ -6,7 +6,7 @@ export function fetchSnacks(){
         throw res
       }
       let snacks = await res.json()
-      dispatch({type: 'ADD_SNACKS', snacks: snacks })
+      dispatch({type: 'GET_SNACKS', snacks: snacks })
     } catch(err) {
       alert(err)
     }
