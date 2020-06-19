@@ -110,3 +110,13 @@ button {
   margin: 50px;
   justify-content: center;
 }
+
+/* USER CARD  */
+
+.userCardImg {
+  height: auto;
+  max-height: 200px;
+  width: auto;
+  max-width: 200px;
+  border-radius: 6px;
+}
