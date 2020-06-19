@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import { fetchSnacks } from './actions/snackActions'
 import { fetchUsers } from './actions/userActions'
 
-
 import { 
   BrowserRouter as Router,
   Route,
@@ -14,10 +13,10 @@ import {
 
 import HomeContainer from './containers/HomeContainer'
 import Snacks from './components/snacks/Snacks'
+import Snack from './components/snacks/Snack'
 import Users from './components/users/Users'
 import LogIn from './components/LogIn'
 import SignUp from './components/SignUp'
-
 
 
 class App extends Component {
@@ -46,6 +45,7 @@ class App extends Component {
             <Route path='/users'>
               <Users users={this.props.users}/>
             </Route> 
+            <Route path='/snacks/:id' render={(routerProps) => <Snack {...routerProps} snacks={this.props.snacks}/>}/>
             <Route path="/snacks">
               <Snacks snacks={this.props.snacks}/>
             </Route>
@@ -57,7 +57,6 @@ class App extends Component {
   }
 }
 
-// const mapStateToProps = ({snacks}) => ({snacks})
 const mapStateToProps = state => ({
   snacks: state.snacks,
   users: state.users

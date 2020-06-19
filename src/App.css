@@ -88,9 +88,20 @@ button {
   max-width: 200px;
 }
 
-.userImg {
-  height: auto;
-  max-height: 400px;
-  width: auto;
-  max-width: 400px;
+/* SNACK PROFILE PAGE */
+
+.snackProfileImg {
+  height: 500px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 50px;
+  padding: 20px;
+  justify-content: center;
+}
+
+.reviews {
+  justify-content: center;
 }
