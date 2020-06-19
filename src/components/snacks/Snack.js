@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { getAvgRating } from '../../helpers/helpers'
 
 const Snack = (props) => {
   
@@ -23,12 +24,6 @@ const Snack = (props) => {
         </div>
       </div>
     )
-  }
-
-  const getAvgRating = reviews => {
-    let ratings = reviews.map(r => r.rating)
-    let rate = ratings.reduce((memo, rating) => memo + rating)
-    return (rate/reviews.length)
   }
 
   const renderReviews = (reviews) => {

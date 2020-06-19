@@ -1,11 +1,10 @@
 import React from 'react'
+import { getAvgRating } from '../../helpers/helpers'
 
 const SnackCardBack = props => {
 
-  const reviewCount = (reviews) => {
-    if (reviews.length > 0) {
-    return <p>Reviews:{reviews.length}</p>
-    }
+  const reviewed = (reviews) => {
+    return (reviews.length > 0) ? getAvgRating(reviews) : "No Reviews Yet!!"
   }
 
   return(
@@ -14,7 +13,8 @@ const SnackCardBack = props => {
       <p>Description:</p>
       <p>{props.snack.description}</p>
       {props.snack.categories.map(cat => <li key={cat}>{cat}</li>)}
-      {reviewCount(props.snack.reviews)}
+      <h5>Snacker Rating:</h5>
+      {reviewed(props.snack.reviews)}
     </div>
   )
 }
