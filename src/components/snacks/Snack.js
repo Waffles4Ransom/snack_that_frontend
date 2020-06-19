@@ -17,12 +17,18 @@ const Snack = (props) => {
           <h4>Categories:</h4>
             {snack.categories.map(c => <li key={c}>{c}</li>)}
           <h4>Rating:</h4>
-            {snack.reviews.length > 0 ? 'avg rate' : 'No Reviews Yet!!'}
+            {snack.reviews.length > 0 ? getAvgRating(snack.reviews) : 'No Reviews Yet!!'}
             <br/>
           <Link to="/snacks"><button className='backBtn'>Back to all Snacks</button></Link>
         </div>
       </div>
     )
+  }
+
+  const getAvgRating = reviews => {
+    let ratings = reviews.map(r => r.rating)
+    let rate = ratings.reduce((memo, rating) => memo + rating)
+    return (rate/reviews.length)
   }
 
   const renderReviews = (reviews) => {
