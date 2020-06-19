@@ -105,3 +105,8 @@ button {
 .reviews {
   justify-content: center;
 }
+
+.backBtn {
+  margin: 50px;
+  justify-content: center;
+}
