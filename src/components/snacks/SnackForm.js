@@ -13,9 +13,62 @@ export default class SnackForm extends Component {
     }
   }
 
+  renderCountryOpts() {
+    let options = [
+      "Australia",
+      "Belgium",
+      "Canada",
+      "Czech Republic",
+      "China",
+      "France",
+      "Germany",
+      "Japan",
+      "Mexico",
+      "Netherlands",
+      "South Korea",
+      "Thailand",
+      "United Kingdom",
+      "United States"
+    ]
+    return options.map(o => <option key={o} value={o}>{o}</option>)
+  }
+
+  renderCategoryOpts() {
+    let options = [
+      'savory',
+      'sweet',
+      'salty',
+      'spicy',
+      'crispy',
+      'crunchy',
+      'chewy',
+      'chocolate',
+      'nutty',
+      'cheesy',
+      'tart',
+      'creamy',
+      'juicy'
+    ]
+    return options.map( o => (
+      <label key={o}>
+        <input key={o} type="checkbox" name={o} value={o} onChange={this.handleCategories} />{" "}
+        {o.charAt(0).toUpperCase() + o.slice(1)}
+      </label>
+    ))
+  }
+
   handleChange = e => {
     this.setState({
       [e.target.name]: e.target.value
+    })
+  }
+
+  handleCategories = e => {
+    const value = e.target.value
+    const newVal = [...this.state.categories]
+    newVal.push(value)
+    this.setState({
+      categories: newVal
     })
   }
 
@@ -55,10 +108,11 @@ export default class SnackForm extends Component {
             <p>Choose a country of origin: </p>
             <select name='origin' onChange={this.handleChange}>
               <option value=''>...</option>
+              {this.renderCountryOpts()}
             </select> 
 
             <p>Select some categories:</p>
-             
+            {this.renderCategoryOpts()}
             <br/><br/>
             <button>Add Snack</button>
         </form>
