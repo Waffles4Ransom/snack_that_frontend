@@ -17,6 +17,8 @@ import Snack from './components/snacks/Snack'
 import Users from './components/users/Users'
 import LogIn from './components/LogIn'
 import SignUp from './components/SignUp'
+import addSnackForm from './components/snacks/SnackForm'
+
 
 
 class App extends Component {
@@ -42,6 +44,7 @@ class App extends Component {
             <Route exact path='/' component={HomeContainer} />
             <Route path='/signup' component={SignUp} />
             <Route path='/login' component={LogIn} />
+            <Route path='/snacks/new' component={addSnackForm}/>
             <Route path='/users'>
               <Users users={this.props.users}/>
             </Route> 

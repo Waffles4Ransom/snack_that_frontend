@@ -30,9 +30,9 @@ const Snack = (props) => {
     if (reviews.length > 0) {
       return reviews.map(r => 
         <div key={r.id}>
-          <p>{r.user_id} says:</p>
+          <strong>{r.user.username} says: </strong>
+          <p>Rating: {r.rating}</p>
           <p>{r.content}</p>
-          <p>{r.rating}</p>
         </div>
       )
     }else{
