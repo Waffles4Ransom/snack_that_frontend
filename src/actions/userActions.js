@@ -15,8 +15,8 @@ export function fetchUsers(){
 
 
 export const login = (credentials) => {
-  console.log(credentials)
-  return async dispatch => {
+  // console.log(credentials)
+  return async (dispatch) => {
     try {
      let res = await fetch('http://localhost:3001/api/v1/login', {
         method: 'POST',
