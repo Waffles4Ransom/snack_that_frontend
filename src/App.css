@@ -124,3 +124,16 @@ button {
   max-width: 200px;
   border-radius: 6px;
 }
+
+
+/* USER PROFILE PAGE  */
+
+.profPhoto {
+  height: auto;
+  max-height: 400px;
+  width: auto;
+  max-width: 400px;
+  border-radius: 20px;
+  float: left;
+  margin-left: 10%;
+}
