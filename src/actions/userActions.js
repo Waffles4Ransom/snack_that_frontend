@@ -50,3 +50,24 @@ export const login = (creds) => {
     }
   }
 }
+
+export const setCurrentUser = () => {
+  return async (dispatch) => {
+    try {
+     let res = await fetch('http://localhost:3001/api/v1/get_current_user', {
+        credentials: "include",
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      if (!res.ok) {
+        throw res
+      }
+      let currentUser = await res.json()
+      dispatch(loginUser(currentUser))
+    } catch(err) {
+      alert(err)
+    }
+  }
+}
