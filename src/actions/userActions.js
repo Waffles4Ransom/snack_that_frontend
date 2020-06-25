@@ -1,3 +1,11 @@
+export const GET_USERS = 'GET_USERS'
+export const SET_CURRENT_USER = 'SET_CURRENT_USER'
+
+export function getUsers(users) {
+  return { type: GET_USERS, users }
+}
+
+
 export function fetchUsers(){
   return async (dispatch) => {
     try {
@@ -6,7 +14,7 @@ export function fetchUsers(){
         throw res
       }
       let users = await res.json()
-      dispatch({type: 'GET_USERS', users: users })
+      dispatch(getUsers(users))
     } catch(err) {
       alert(err)
     }

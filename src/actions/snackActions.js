@@ -1,3 +1,11 @@
+export const GET_SNACKS = 'GET_SNACKS'
+export const ADD_SNACK = 'ADD_SNACK'
+
+export function getSnacks(snacks) {
+  return { type: GET_SNACKS, snacks }
+}
+
+
 export function fetchSnacks(){
   return async (dispatch) => {
     try {
@@ -6,7 +14,7 @@ export function fetchSnacks(){
         throw res
       }
       let snacks = await res.json()
-      dispatch({type: 'GET_SNACKS', snacks: snacks })
+      dispatch(getSnacks(snacks))
     } catch(err) {
       alert(err)
     }
