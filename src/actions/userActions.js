@@ -5,6 +5,10 @@ export function getUsers(users) {
   return { type: GET_USERS, users }
 }
 
+export function loginUser(user) {
+  return { type: SET_CURRENT_USER, user }
+}
+
 
 export function fetchUsers(){
   return async (dispatch) => {
@@ -23,7 +27,7 @@ export function fetchUsers(){
 
 
 export const login = (credentials) => {
-  // console.log(credentials)
+  console.log(credentials)
   return async (dispatch) => {
     try {
      let res = await fetch('http://localhost:3001/api/v1/login', {
@@ -39,7 +43,7 @@ export const login = (credentials) => {
       }
       let currentUser = await res.json()
       console.log(currentUser)
-      dispatch({type: 'SET_CURRENT_USER', currentUser})
+      dispatch(loginUser(currentUser))
     } catch(err) {
       alert(err)
     }
