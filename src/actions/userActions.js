@@ -13,7 +13,9 @@ export function loginUser(user) {
 export function fetchUsers(){
   return async (dispatch) => {
     try {
-      let res = await fetch('http://localhost:3001/api/v1/users')
+      let res = await fetch('http://localhost:3001/api/v1/users', {
+        credentials: "include"
+      })
       if (!res.ok) {
         throw res
       }
@@ -26,23 +28,22 @@ export function fetchUsers(){
 }
 
 
-export const login = (credentials) => {
-  console.log(credentials)
+export const login = (creds) => {
+  // console.log(credentials)
   return async (dispatch) => {
     try {
      let res = await fetch('http://localhost:3001/api/v1/login', {
+        credentials: "include",
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(credentials)
+        body: JSON.stringify(creds)
       })
-      console.log(res)
       if (!res.ok) {
         throw res
       }
       let currentUser = await res.json()
-      console.log(currentUser)
       dispatch(loginUser(currentUser))
     } catch(err) {
       alert(err)

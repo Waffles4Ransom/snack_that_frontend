@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { createSnack } from '../../actions/snackActions'
 
-export default class SnackForm extends Component {
+class SnackForm extends Component {
 
   constructor() {
     super()
@@ -75,6 +77,7 @@ export default class SnackForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
+    this.props.addSnack(this.state)
     console.log(this.state)
   }
 
@@ -123,3 +126,8 @@ export default class SnackForm extends Component {
   }
 }
 
+const mapDispatchToProps = dispatch => {
+  return { addSnack: () => dispatch(createSnack()) }
+}
+
+export default connect(null, mapDispatchToProps)(SnackForm)
