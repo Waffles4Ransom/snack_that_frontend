@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 export default class SnackForm extends Component {
 
@@ -114,8 +115,9 @@ export default class SnackForm extends Component {
             <p>Select some categories:</p>
             {this.renderCategoryOpts()}
             <br/><br/>
-            <button>Add Snack</button>
+            <button>Submit</button>
         </form>
+        <Link to='/snacks'><button>Back to Snacks</button></Link>
       </div>
     )
   }
