@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './App.css'
 import { connect } from 'react-redux'
 import { fetchSnacks } from './actions/snackActions'
-import { fetchUsers, setCurrentUser } from './actions/userActions'
+import { fetchUsers, setCurrentUser, logout } from './actions/userActions'
 
 import { 
   BrowserRouter as Router,
@@ -32,21 +32,33 @@ class App extends Component {
 
   renderUserNavs() {
     if (this.props.loggedIn) {
-      return(
-        <Link to={`/users/${this.props.currentUser.id}`} className='link right'>Profile</Link>
-        // <Link to="/logout" className='link right'>Log Out</Link>
-      ) 
+      if (this.props.currentUser.hasOwnProperty('id')) {
+        return(
+          <>
+            <Link to='/' onClick={() => this.props.logout()} className='link right'>Log Out</Link>
+            <Link to={`/users/${this.props.currentUser.id}`} className='link right'>Profile</Link>
+          </>
+        ) 
+      } else {
+        return (
+          <>
+            <Link to="/login" className='link right'>Log In</Link>
+            <Link to="/signup" className='link right'>Sign Up</Link>
+          </>
+          )
+        }
     } else {
       return (
         <>
           <Link to="/login" className='link right'>Log In</Link>
           <Link to="/signup" className='link right'>Sign Up</Link>
         </>
-      )
+       )
     }
   }
 
   render() {
+    // console.log(this.props.currentUser, this.props.loggedIn)
     return (
       <Router> 
         <div className="App">
@@ -55,8 +67,6 @@ class App extends Component {
             <Link to="/snacks" className='link'>Snacks</Link>
             <Link to="/users" className='link'>Snackers</Link>
             {this.renderUserNavs()}
-            {/* <Link to="/login" className='link right'>Log In</Link> */}
-            {/* <Link to="/signup" className='link right'>Sign Up</Link>  */}
           </div> 
 
           <Switch>
@@ -88,12 +98,4 @@ const mapStateToProps = state => ({
   currentUser: state.currentUser
 })
 
-const mapDispatchToProps = dispatch => {
-  return {
-    fetchSnacks: () => dispatch(fetchSnacks()),
-    fetchUsers: () => dispatch(fetchUsers()),
-    setCurrentUser: () => dispatch(setCurrentUser())
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default connect(mapStateToProps, { fetchSnacks, fetchUsers, setCurrentUser, logout })(App)
