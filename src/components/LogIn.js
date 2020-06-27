@@ -3,14 +3,14 @@ import Form from './Form'
 import { connect } from 'react-redux'
 import { login } from '../actions/userActions'
 
-const LogIn = ({ login, currentUser }) => {
+const LogIn = ({ login, currentUser, history }) => {
 
   const handleSubmit = inputsArr => {
     const loginData = {
       username: inputsArr[0],
       password: inputsArr[1]
     }
-    login(loginData)
+    login(loginData, history)
   }
 
   const renderErrors = () => {

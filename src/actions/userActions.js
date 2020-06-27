@@ -34,8 +34,7 @@ export function fetchUsers(){
 }
 
 
-export const login = (creds) => {
-  // console.log(credentials)
+export const login = (creds, history) => {
   return async (dispatch) => {
     try {
      let res = await fetch('http://localhost:3001/api/v1/login', {
@@ -50,7 +49,11 @@ export const login = (creds) => {
         throw res
       }
       let currentUser = await res.json()
+      console.log(currentUser)
       dispatch(loginUser(currentUser))
+      if (!currentUser.error) {
+        history.push(`/users/${currentUser.id}`)
+      }
     } catch(err) {
       alert(err)
     }
