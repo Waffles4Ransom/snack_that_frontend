@@ -31,29 +31,20 @@ class App extends Component {
   }
 
   renderUserNavs() {
-    if (this.props.loggedIn) {
-      if (this.props.currentUser.hasOwnProperty('id')) {
-        return(
-          <>
-            <Link to='/' onClick={() => this.props.logout()} className='link right'>Log Out</Link>
-            <Link to={`/users/${this.props.currentUser.id}`} className='link right'>Profile</Link>
-          </>
-        ) 
-      } else {
-        return (
-          <>
-            <Link to="/login" className='link right'>Log In</Link>
-            <Link to="/signup" className='link right'>Sign Up</Link>
-          </>
-          )
-        }
+    if (this.props.currentUser.hasOwnProperty('id')) {
+      return(
+        <>
+          <Link to='/' onClick={() => this.props.logout()} className='link right'>Log Out</Link>
+          <Link to={`/users/${this.props.currentUser.id}`} className='link right'>My Profile</Link>
+        </>
+      ) 
     } else {
       return (
         <>
           <Link to="/login" className='link right'>Log In</Link>
           <Link to="/signup" className='link right'>Sign Up</Link>
         </>
-       )
+      )
     }
   }
 
@@ -82,7 +73,7 @@ class App extends Component {
             </Route> 
             <Route path='/snacks/:id' render={(routerProps) => <Snack {...routerProps} snacks={this.props.snacks}/>}/>
             <Route path='/snacks'>
-              <Snacks snacks={this.props.snacks}/>
+              <Snacks snacks={this.props.snacks} user={this.props.currentUser}/>
             </Route>
           </Switch>
         </div>
@@ -94,7 +85,6 @@ class App extends Component {
 const mapStateToProps = state => ({
   snacks: state.snacks,
   users: state.users,
-  loggedIn: !!state.currentUser,
   currentUser: state.currentUser
 })
 
