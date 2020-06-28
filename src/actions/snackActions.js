@@ -27,8 +27,7 @@ export function fetchSnacks() {
   }
 }
 
-export function createSnack(formData) {
-  console.log(formData)
+export function createSnack(formData, history) {
   let newSnack = {
     name: formData.name,
     description: formData.description,
@@ -51,8 +50,12 @@ export function createSnack(formData) {
       }
       let snack = await res.json()
       dispatch(addSnack(snack))
+      if (!!snack) {
+       return history.push('/snacks')
+      }
     } catch(err) {
-      console.log(err)
+      let msg = await err.json()
+      alert(msg.error)
     }
   }
 }

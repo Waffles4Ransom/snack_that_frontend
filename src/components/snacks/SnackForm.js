@@ -77,9 +77,8 @@ class SnackForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    this.props.addSnack(this.state)
+    this.props.addSnack(this.state, this.props.history)
   }
-
 
   render() {
     return(
@@ -92,6 +91,7 @@ class SnackForm extends Component {
             placeholder='name'
             onChange={this.handleChange}
             value={this.state.name}
+            required
             />
             <input 
             type='text'
@@ -99,6 +99,7 @@ class SnackForm extends Component {
             placeholder='description'
             onChange={this.handleChange}
             value={this.state.description}
+            required
             />
             <input 
             type='text' 
@@ -126,7 +127,7 @@ class SnackForm extends Component {
 }
 
 const mapDispatchToProps = dispatch => {
-  return { addSnack: (s) => dispatch(createSnack(s)) }
+  return { addSnack: (s, h) => dispatch(createSnack(s, h)) }
 }
 
 export default connect(null, mapDispatchToProps)(SnackForm)
