@@ -23,10 +23,14 @@ const Snack = (props) => {
             {snack.reviews.length > 0 ? getAvgRating(snack.reviews) : 'No Reviews Yet!!'}
             <br/>
           <Link to="/snacks"><button className='backBtn'>Back to all Snacks</button></Link>
-          <Link to='/snacks' onClick={() => props.deleteSnack(snack.id)}><button>Delete this Snack</button></Link>
+          { props.user.id ? <Link to='/snacks' onClick={handleDelete}><button>Delete this Snack</button></Link> : null }
         </div>
       </div>
     )
+  }
+
+  const handleDelete = () => {
+    return (window.confirm('Are you sure you want to delete this snack?')) ? props.deleteSnack(props.snack.id) : null
   }
 
   const renderReviews = (reviews) => {
