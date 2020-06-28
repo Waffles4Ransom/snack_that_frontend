@@ -1,5 +1,7 @@
 export const GET_SNACKS = 'GET_SNACKS'
 export const ADD_SNACK = 'ADD_SNACK'
+export const REMOVE_SNACK = 'REMOVE_SNACK'
+
 
 export function getSnacks(snacks) {
   return { type: GET_SNACKS, snacks }
@@ -7,6 +9,10 @@ export function getSnacks(snacks) {
 
 export function addSnack(snack) {
   return { type: ADD_SNACK, snack}
+}
+
+export function removeSnack(id) {
+  return { type: REMOVE_SNACK, id}
 }
 
 
@@ -56,6 +62,26 @@ export function createSnack(formData, history) {
     } catch(err) {
       let msg = await err.json()
       alert(msg.error)
+    }
+  }
+}
+
+export function deleteSnack(snackID) {
+  return async (dispatch) => {
+    try {
+      let res = await fetch(`http://localhost:3001/api/v1/snacks/${snackID}`, {
+        credentials: 'include',
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      if (! res.ok) {
+        throw res
+      }
+      dispatch(removeSnack(snackID))
+    } catch(err) {
+      console.log(err)
     }
   }
 }
