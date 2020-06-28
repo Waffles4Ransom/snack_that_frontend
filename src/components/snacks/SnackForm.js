@@ -78,7 +78,6 @@ class SnackForm extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
     this.props.addSnack(this.state)
-    console.log(this.state)
   }
 
 
@@ -127,7 +126,7 @@ class SnackForm extends Component {
 }
 
 const mapDispatchToProps = dispatch => {
-  return { addSnack: () => dispatch(createSnack()) }
+  return { addSnack: (s) => dispatch(createSnack(s)) }
 }
 
 export default connect(null, mapDispatchToProps)(SnackForm)

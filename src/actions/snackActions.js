@@ -28,6 +28,14 @@ export function fetchSnacks() {
 }
 
 export function createSnack(formData) {
+  console.log(formData)
+  let newSnack = {
+    name: formData.name,
+    description: formData.description,
+    image: formData.image,
+    origin: formData.origin,
+    categories: formData.categories
+  }
   return async (dispatch) => {
     try {
       let res = await fetch('http://localhost:3001/api/v1/snacks', {
@@ -36,14 +44,13 @@ export function createSnack(formData) {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify(newSnack)
       })
       if (! res.ok) {
         throw res
       }
       let snack = await res.json()
-      console.log(snack)
-      return dispatch(addSnack(snack))
+      dispatch(addSnack(snack))
     } catch(err) {
       console.log(err)
     }
