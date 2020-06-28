@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { deleteSnack } from '../../actions/snackActions'
 import { getAvgRating } from '../../helpers/helpers'
 
 const Snack = (props) => {
@@ -21,6 +23,7 @@ const Snack = (props) => {
             {snack.reviews.length > 0 ? getAvgRating(snack.reviews) : 'No Reviews Yet!!'}
             <br/>
           <Link to="/snacks"><button className='backBtn'>Back to all Snacks</button></Link>
+          <Link to='/snacks' onClick={() => props.deleteSnack(snack.id)}><button>Delete this Snack</button></Link>
         </div>
       </div>
     )
@@ -40,17 +43,16 @@ const Snack = (props) => {
     }
   }
 
-  let s = props.snacks[props.match.params.id - 1]
-
   return(
     <div>
-      {s ? <h1>{s.name}</h1> : null}
-      {s ? renderSnack(s) : null}
+      <h1>{props.snack.name}</h1>
+      {renderSnack(props.snack)}
       <h2>Reviews</h2>
         <div className='reviews'>
-          {s ? renderReviews(s.reviews): null}
+          {renderReviews(props.snack.reviews)}
         </div>
     </div>
   )
 }
-export default Snack
+
+export default connect(null, { deleteSnack })(Snack)

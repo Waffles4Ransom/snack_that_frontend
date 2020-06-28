@@ -71,7 +71,13 @@ class App extends Component {
             <Route path='/users'>
               <Users users={this.props.users}/>
             </Route> 
-            <Route path='/snacks/:id' render={(routerProps) => <Snack {...routerProps} snacks={this.props.snacks}/>}/>
+            <Route path='/snacks/:id' render={ props => {
+              if (this.props.snacks) {
+                let snack = this.props.snacks.find(s => s.id === Number.parseInt(props.match.params.id))
+                return <Snack {...props} snack={snack} />}
+              }
+            }/>
+
             <Route path='/snacks'>
               <Snacks snacks={this.props.snacks} user={this.props.currentUser}/>
             </Route>

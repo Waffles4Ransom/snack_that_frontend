@@ -7,7 +7,6 @@ export default function snackReducer(state = [], action) {
     case ADD_SNACK:
       return [...state.concat(action.snack)]  
     case REMOVE_SNACK:
-      console.log(action.id)
       return [...state.filter(snack => snack.id !== action.id)]
     default:
       return state
