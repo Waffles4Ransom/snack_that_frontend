@@ -49,7 +49,7 @@ class App extends Component {
   }
 
   render() {
-    // console.log(this.props.currentUser, this.props.loggedIn)
+    // console.log(this.props.currentUser, this.props.users)
     return (
       <Router> 
         <div className="App">
@@ -65,9 +65,12 @@ class App extends Component {
             <Route path='/signup' component={SignUp} />
             <Route path='/login' component={LogIn} />
             <Route path='/snacks/new' component={addSnackForm}/>
-            <Route path='/users/:id'>
-              <Profile user={this.props.currentUser} />
-            </Route>
+            <Route path='/users/:id' render={ props => {
+              if (this.props.users) {
+                let user = this.props.users.find(u => u.id === Number.parseInt(props.match.params.id))
+                return <Profile {...props} user={user} currentUser={this.props.currentUser} />}
+              } 
+            }/>
             <Route path='/users'>
               <Users users={this.props.users}/>
             </Route> 
