@@ -1,6 +1,7 @@
 export const GET_USERS = 'GET_USERS'
 export const SET_CURRENT_USER = 'SET_CURRENT_USER'
 export const CLEAR_CURRENT_USER = 'CLEAR_CURRENT_USER'
+export const ADD_USER = 'ADD_USER'
 
 
 export function getUsers(users) {
@@ -13,6 +14,10 @@ export function loginUser(user) {
 
 export function logoutUser() {
   return { type: CLEAR_CURRENT_USER }
+}
+
+export function createUser(user) {
+  return {type: ADD_USER, user }
 }
 
 
@@ -52,6 +57,36 @@ export const login = (creds, history) => {
       console.log(currentUser)
       dispatch(loginUser(currentUser))
       if (!currentUser.error) {
+        history.push(`/users/${currentUser.id}`)
+      }
+    } catch(err) {
+      alert(err)
+    }
+  }
+}
+
+export const signup = (creds, history) => {
+  return async (dispatch) => {
+    try {
+      const userInfo = {
+        user: creds
+      }
+      let res = await fetch('http://localhost:3001/api/v1/users', {
+        credentials: "include",
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(userInfo)
+      })
+      if (!res.ok) {
+        throw res
+      }
+      let currentUser = await res.json()
+      dispatch(createUser(currentUser))
+      dispatch(loginUser(currentUser))
+      dispatch(createUser(currentUser))
+      if (!currentUser.errors) {
         history.push(`/users/${currentUser.id}`)
       }
     } catch(err) {

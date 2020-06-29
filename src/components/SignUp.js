@@ -1,15 +1,31 @@
 import React from 'react'
 import Form from './Form'
+import { connect } from 'react-redux'
+import { signup } from '../actions/userActions'
 
-const SignUp = () => {
+const SignUp = ({ signup, currentUser, history }) => {
 
   const handleSubmit = inputsArr => {
-    console.log(inputsArr)
+    let signUpData = {
+      name: inputsArr[0],
+      location: inputsArr[1],
+      profile_photo: inputsArr[2],
+      username: inputsArr[3],
+      password: inputsArr[4]
+    }
+    signup(signUpData, history)
+  }
+
+  const renderErrors = () => {
+    if (currentUser) {
+      return <strong><p className='error'>{currentUser.errors}</p></strong>
+    } 
   }
 
   return(
     <>
       <h4>Become a Snacker</h4>
+      {renderErrors()}
       <Form 
         submitCallback={handleSubmit}
         inputs={[['Name', 'text'], ['Location', 'text'],['Profile Photo URL', 'text'], ['Username', 'text'], ['Password', 'password']]}
@@ -19,4 +35,10 @@ const SignUp = () => {
   )
 }
 
-export default SignUp
+const mapStateToProps = state => {
+  return {
+    currentUser: state.currentUser
+  }
+}
+
+export default connect(mapStateToProps, { signup })(SignUp)
