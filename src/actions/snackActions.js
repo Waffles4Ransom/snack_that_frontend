@@ -66,6 +66,36 @@ export function createSnack(formData, history) {
   }
 }
 
+export function addReviewToSnack(formData, history) {
+  console.log(history)
+  let newReview = {
+    content: formData.content,
+    rating: formData.rating,
+    user_id: formData.user_id,
+    snack_id: formData.snack_id
+  }
+  return async (dispatch) => {
+    try {
+      let res = await fetch(`http://localhost:3001/api/v1/snacks/${formData.snack_id}/reviews`, {
+        credentials: "include",
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newReview)
+      })
+      if (! res.ok) {
+        throw res
+      }
+      return history.go()
+      // let snack = await res.json()
+      // dispatch(getSnacks(snacks))
+    } catch(err) {
+      alert(err)
+    }
+  }
+}
+
 export function deleteSnack(snackID) {
   return async (dispatch) => {
     try {

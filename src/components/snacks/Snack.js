@@ -54,7 +54,7 @@ const Snack = (props) => {
       return (
         <div>
           <h4>Hey {props.user.username}, add your review:</h4>
-          <ReviewForm user={props.user}/>
+          <ReviewForm user={props.user} snackID={props.snack.id}/>
         </div>
       )
     }

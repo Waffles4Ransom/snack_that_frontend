@@ -1,23 +1,30 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
+import { addReviewToSnack } from '../actions/snackActions'
 
 class ReviewForm extends Component {
   constructor() {
     super()
     this.state = {
       content: '',
-      rating: ''
+      rating: '',
+      user_id: '',
+      snack_id: ''
     }
   }
 
   handleChange = (e) => {
     this.setState({
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
+      user_id: this.props.user.id,
+      snack_id: this.props.snackID
     })
   }
 
   handleSubmit = (e) => {
     e.preventDefault()
-    console.log(this.state)
+    this.props.addReviewToSnack(this.state, this.props.history)
   }
 
   render(){
@@ -75,4 +82,4 @@ class ReviewForm extends Component {
   }
 }
 
-export default ReviewForm
+export default withRouter(connect(null, { addReviewToSnack })(ReviewForm))
