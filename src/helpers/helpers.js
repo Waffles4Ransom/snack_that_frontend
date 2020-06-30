@@ -3,13 +3,21 @@ import React from 'react'
 export const getAvgRatingSml = reviews => {
   let ratings = reviews.map(r => r.rating)
   let num = ratings.reduce((memo, rating) => memo + rating)/reviews.length
-  return [...Array(num)].map((e, i) => <img src='/catbutt_30.png' alt='cat butt' key={i} />)
+  if (num === 0) {
+    return "ZERO BUTTS"
+  } else {
+    return [...Array(num)].map((e, i) => <img src='/catbutt_30.png' alt='cat butt' key={i} />)
+  }
 }
 
 export const getAvgRatingBig = reviews => {
   let ratings = reviews.map(r => r.rating)
   let num = ratings.reduce((memo, rating) => memo + rating)/reviews.length
-  return [...Array(num)].map((e, i) => <img src='/catbutt_60.png' alt='cat butt' key={i} />)
+  if (num === 0) {
+    return "ZERO BUTTS"
+  } else {
+    return [...Array(num)].map((e, i) => <img src='/catbutt_60.png' alt='cat butt' key={i} />)
+  }
 }
 
 export const renderDate = user => {
