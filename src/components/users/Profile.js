@@ -37,7 +37,7 @@ const Profile = (props) => {
         <h4>Joined: {renderDate(props.user)}</h4>
         <h4>Snack Count: {props.user.reviews.length}</h4>
         {props.user.reviews.length > 0 ? renderReviews() : null}
-        {props.user.id === props.currentUser.id ? <Link to={`/users/${props.user.id}/edit`}><button>Edit Profile</button></Link> : null}
+        {/* {props.user.id === props.currentUser.id ? <Link to={`/users/${props.user.id}/edit`}><button>Edit Profile</button></Link> : null} */}
       </div>
     )
   }

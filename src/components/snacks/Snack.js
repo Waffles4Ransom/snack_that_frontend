@@ -1,4 +1,5 @@
 import React from 'react'
+import ReviewForm from '../ReviewForm'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { deleteSnack } from '../../actions/snackActions'
@@ -19,7 +20,7 @@ const Snack = (props) => {
           <p>{snack.origin}</p>
           <h4>Categories:</h4>
             {snack.categories.map(c => <li key={c}>{c}</li>)}
-          <h4>Rating:</h4>
+          <h4>Snacker Rating:</h4>
             {snack.reviews.length > 0 ? getAvgRating(snack.reviews) : 'No Reviews Yet!!'}
             <br/>
           <Link to="/snacks"><button className='backBtn'>Back to all Snacks</button></Link>
@@ -42,18 +43,33 @@ const Snack = (props) => {
           <p>{r.content}</p>
         </div>
       )
-    }else{
-      return <p>add a review</p>
+    } else {
+      return <h4>This snack has yet to be reviewed!!</h4>
     }
   }
 
+  const renderReviewForm = (reviews) => {
+    let reviewed = reviews.find(r => r.user_id === props.user.id) 
+    if (!reviewed) {
+      return (
+        <div>
+          <h4>Hey {props.user.username}, add your review:</h4>
+          <ReviewForm user={props.user}/>
+        </div>
+      )
+    }
+  }
+
+  console.log(props.snack)
+
   return(
     <div>
-      <h1>{props.snack.name}</h1>
-      {renderSnack(props.snack)}
+      <h1>{props.snack ? props.snack.name : null}</h1>
+      {props.snack ? renderSnack(props.snack) : null}
       <h2>Reviews</h2>
         <div className='reviews'>
-          {renderReviews(props.snack.reviews)}
+          {props.snack ? renderReviewForm(props.snack.reviews) : null}
+          {props.snack ? renderReviews(props.snack.reviews) : null}
         </div>
     </div>
   )
