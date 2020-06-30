@@ -115,3 +115,23 @@ export function deleteSnack(snackID) {
     }
   }
 }
+
+export function deleteReview(snackID, reviewID, history) {
+  return async () => {
+    try {
+      let res = await fetch(`http://localhost:3001/api/v1/snacks/${snackID}/reviews/${reviewID}`, {
+        credentials: 'include',
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      if (! res.ok) {
+        throw res
+      }
+      return history.go()
+    } catch(err) {
+      console.log(err)
+    }
+  }
+}

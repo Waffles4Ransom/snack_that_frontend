@@ -2,7 +2,7 @@ import React from 'react'
 import ReviewForm from '../ReviewForm'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { deleteSnack } from '../../actions/snackActions'
+import { deleteSnack, deleteReview } from '../../actions/snackActions'
 import { getAvgRatingBig } from '../../helpers/helpers'
 
 const Snack = (props) => {
@@ -38,9 +38,11 @@ const Snack = (props) => {
     if (reviews.length > 0) {
       return reviews.map(r => 
         <div key={r.id}>
-          <p><strong>{r.user.username}</strong> says: "{r.content}" {[...Array(r.rating)].map((e, i) => <img src='/catbutt_30.png' alt='cat butt' key={i} />)}</p>
-          {/* <p>{[...Array(r.rating)].map((e, i) => <img src='/catbutt_30.png' alt='cat butt' key={i} />)}</p>
-          <p>{r.content}</p> */}
+          <p><strong>{r.user.username} </strong> 
+          says: "{r.content}" 
+          {r.rating === 0 ? ' ZERO BUTTS '  : [...Array(r.rating)].map((e, i) => <img src='/catbutt_30.png' alt='cat butt' key={i} />)} 
+          {r.user.id === props.user.id ? <button onClick={() => props.deleteReview(props.snack.id, r.id, props.history)}>X</button> : null}
+          </p>
         </div>
       )
     } else {
@@ -73,4 +75,4 @@ const Snack = (props) => {
   )
 }
 
-export default connect(null, { deleteSnack })(Snack)
+export default connect(null, { deleteSnack, deleteReview })(Snack)
