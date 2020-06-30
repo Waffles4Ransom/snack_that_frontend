@@ -3,7 +3,7 @@ import ReviewForm from '../ReviewForm'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { deleteSnack } from '../../actions/snackActions'
-import { getAvgRating } from '../../helpers/helpers'
+import { getAvgRatingBig } from '../../helpers/helpers'
 
 const Snack = (props) => {
   
@@ -21,7 +21,7 @@ const Snack = (props) => {
           <h4>Categories:</h4>
             {snack.categories.map(c => <li key={c}>{c}</li>)}
           <h4>Snacker Rating:</h4>
-            {snack.reviews.length > 0 ? getAvgRating(snack.reviews) : 'No Reviews Yet!!'}
+            {snack.reviews.length > 0 ? getAvgRatingBig(snack.reviews) : 'No Reviews Yet!!'}
             <br/>
           <Link to="/snacks"><button className='backBtn'>Back to all Snacks</button></Link>
           { props.user.id ? <Link to='/snacks' onClick={handleDelete}><button>Delete this Snack</button></Link> : null }
@@ -38,9 +38,9 @@ const Snack = (props) => {
     if (reviews.length > 0) {
       return reviews.map(r => 
         <div key={r.id}>
-          <strong>{r.user.username} says: </strong>
-          <p>Rating: {r.rating}</p>
-          <p>{r.content}</p>
+          <p><strong>{r.user.username}</strong> says: "{r.content}" {[...Array(r.rating)].map((e, i) => <img src='/catbutt_30.png' alt='cat butt' key={i} />)}</p>
+          {/* <p>{[...Array(r.rating)].map((e, i) => <img src='/catbutt_30.png' alt='cat butt' key={i} />)}</p>
+          <p>{r.content}</p> */}
         </div>
       )
     } else {
@@ -59,8 +59,6 @@ const Snack = (props) => {
       )
     }
   }
-
-  console.log(props.snack)
 
   return(
     <div>

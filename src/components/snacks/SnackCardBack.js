@@ -1,10 +1,10 @@
 import React from 'react'
-import { getAvgRating } from '../../helpers/helpers'
+import { getAvgRatingSml } from '../../helpers/helpers'
 
 const SnackCardBack = props => {
 
   const reviewed = (reviews) => {
-    return (reviews.length > 0) ? getAvgRating(reviews) : "No Reviews Yet!!"
+    return (reviews.length > 0) ? getAvgRatingSml(reviews) : "No Reviews Yet!!"
   }
 
   return(
