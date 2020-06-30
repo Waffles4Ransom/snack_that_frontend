@@ -136,4 +136,9 @@ button {
   border-radius: 20px;
   float: left;
   margin-left: 10%;
+  box-shadow: 8px 10px 10px slategray;
+}
+
+.user_profile {
+  margin-top: 50px;
 }
