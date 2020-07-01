@@ -8,7 +8,7 @@ export default class HomeContainer extends Component {
       <div>
         <h1>Snack That</h1>
         <h4>Serious Snackers Only</h4>
-        <Link to="/snacks">Browse Snacks</Link> 
+        <Link to="/snacks">Show me the Snacks</Link> 
       </div>
     )
   }

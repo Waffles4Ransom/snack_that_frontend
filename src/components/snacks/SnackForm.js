@@ -83,7 +83,7 @@ class SnackForm extends Component {
   render() {
     return(
       <div>
-        <h1>Add a new Snack</h1>
+        <h1 className='dotted'>Add a new Snack</h1>
           <form onSubmit={this.handleSubmit}>
             <input 
             type='text' 

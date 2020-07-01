@@ -37,7 +37,7 @@ const Snack = (props) => {
   const renderReviews = (reviews) => {
     if (reviews.length > 0) {
       return reviews.map(r => 
-        <div key={r.id}>
+        <div key={r.id} className='review_box'>
           <p><strong>{r.username} </strong> 
           says: "{r.content}" 
           {r.rating === 0 ? ' ZERO BUTTS '  : [...Array(r.rating)].map((e, i) => <img src='/catbutt_30.png' alt='cat butt' key={i} />)} 
@@ -64,9 +64,9 @@ const Snack = (props) => {
 
   return(
     <div>
-      <h1>{props.snack ? props.snack.name : null}</h1>
+      <h1 className='snack_title'>{props.snack ? props.snack.name : null}</h1>
       {props.snack ? renderSnack(props.snack) : null}
-      <h2>Reviews</h2>
+      <h1 className='dotted'>Reviews</h1>
         <div className='reviews'>
           {props.snack ? renderReviewForm(props.snack.reviews) : null}
           {props.snack ? renderReviews(props.snack.reviews) : null}

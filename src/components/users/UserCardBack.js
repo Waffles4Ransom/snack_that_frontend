@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const UserCardBack = props => {
 
   return (
-    <div className='snackcard' onClick={() => props.handleClick()}>
+    <div className='snackcard back' onClick={() => props.handleClick()}>
       <h4>Joined: {renderDate(props.user)}</h4>
       <h5>Hometown: {props.user.location}</h5>
       <h5>{props.user.username}'s review count:</h5>

@@ -8,7 +8,7 @@ const SnackCardBack = props => {
   }
 
   return(
-    <div className='snackcard' onClick={() => props.handleClick()}>
+    <div className='snackcard back' onClick={() => props.handleClick()}>
       <h4>Country of Origin: {props.snack.origin}</h4>
       <p>Description:</p>
       <p>{props.snack.description}</p>
