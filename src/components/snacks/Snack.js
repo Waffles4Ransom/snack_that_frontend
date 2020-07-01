@@ -38,10 +38,10 @@ const Snack = (props) => {
     if (reviews.length > 0) {
       return reviews.map(r => 
         <div key={r.id}>
-          <p><strong>{r.user.username} </strong> 
+          <p><strong>{r.username} </strong> 
           says: "{r.content}" 
           {r.rating === 0 ? ' ZERO BUTTS '  : [...Array(r.rating)].map((e, i) => <img src='/catbutt_30.png' alt='cat butt' key={i} />)} 
-          {r.user.id === props.user.id ? <button onClick={() => props.deleteReview(props.snack.id, r.id, props.history)}>X</button> : null}
+          {r.user_id === props.user.id ? <button onClick={() => props.deleteReview(props.snack.id, r.id, props.history)}>X</button> : null}
           </p>
         </div>
       )
