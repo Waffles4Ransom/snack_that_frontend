@@ -11,7 +11,7 @@ import {
   Link
 } from 'react-router-dom'
 
-import HomeContainer from './containers/HomeContainer'
+import Home from './components/Home'
 import Snacks from './components/snacks/Snacks'
 import Snack from './components/snacks/Snack'
 import Users from './components/users/Users'
@@ -60,7 +60,7 @@ class App extends Component {
           </div> 
 
           <Switch>
-            <Route exact path='/' component={HomeContainer} />
+            <Route exact path='/' component={Home} />
             <Route path='/signup' component={SignUp} />
             <Route path='/login' component={LogIn} />
             <Route path='/snacks/new' component={SnackForm}/>
