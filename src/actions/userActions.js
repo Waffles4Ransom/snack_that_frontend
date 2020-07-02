@@ -85,7 +85,6 @@ export const signup = (creds, history) => {
       let currentUser = await res.json()
       dispatch(createUser(currentUser))
       dispatch(loginUser(currentUser))
-      dispatch(createUser(currentUser))
       if (!currentUser.errors) {
         history.push(`/users/${currentUser.id}`)
       }

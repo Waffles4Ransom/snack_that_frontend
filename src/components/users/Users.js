@@ -4,7 +4,8 @@ import UserCardContainer from '../../containers/UserCardContainer'
 const Users = ({ users }) => {
   
   const renderUsers = users => {
-    return users.map(u => <UserCardContainer key={u.id} user={u}/>)
+    const snackers = users.filter(u => u.hasOwnProperty('id'))
+    return snackers.map(u => <UserCardContainer key={u.id} user={u}/>)
   }
 
   return (
