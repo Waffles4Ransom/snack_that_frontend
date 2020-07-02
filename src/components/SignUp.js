@@ -24,7 +24,7 @@ const SignUp = ({ signup, currentUser, history }) => {
 
   return(
     <>
-      <h4>Become a Snacker</h4>
+      <h2 className='nal_font'>Become a Snacker</h2>
       {renderErrors()}
       <Form 
         submitCallback={handleSubmit}

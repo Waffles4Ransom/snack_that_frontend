@@ -18,7 +18,7 @@ import Users from './components/users/Users'
 import Profile from './components/users/Profile'
 import LogIn from './components/LogIn'
 import SignUp from './components/SignUp'
-import addSnackForm from './components/snacks/SnackForm'
+import SnackForm from './components/snacks/SnackForm'
 
 
 
@@ -34,29 +34,28 @@ class App extends Component {
     if (this.props.currentUser.hasOwnProperty('id')) {
       return(
         <>
-          <Link to='/' onClick={() => this.props.logout()} className='link right'>Log Out</Link>
-          <Link to={`/users/${this.props.currentUser.id}`} className='link right'>My Profile</Link>
+          <Link to='/' onClick={() => this.props.logout()} className='link right'>LOG OUT</Link>
+          <Link to={`/users/${this.props.currentUser.id}`} className='link right'>MY PROFILE</Link>
         </>
       ) 
     } else {
       return (
         <>
-          <Link to="/login" className='link right'>Log In</Link>
-          <Link to="/signup" className='link right'>Sign Up</Link>
+          <Link to="/login" className='link right'>LOG IN</Link>
+          <Link to="/signup" className='link right'>SIGN UP</Link>
         </>
       )
     }
   }
 
   render() {
-    // console.log(this.props.currentUser, this.props.users)
     return (
       <Router> 
         <div className="App">
           <div className='nav'>
-            <Link to="/" className='link'>Snack That</Link>
-            <Link to="/snacks" className='link'>Snacks</Link>
-            <Link to="/users" className='link'>Snackers</Link>
+            <Link to="/" className='link'>SNACK THAT</Link>
+            <Link to="/snacks" className='link'>SNACKS</Link>
+            <Link to="/users" className='link'>SNACKERS</Link>
             {this.renderUserNavs()}
           </div> 
 
@@ -64,7 +63,7 @@ class App extends Component {
             <Route exact path='/' component={HomeContainer} />
             <Route path='/signup' component={SignUp} />
             <Route path='/login' component={LogIn} />
-            <Route path='/snacks/new' component={addSnackForm}/>
+            <Route path='/snacks/new' component={SnackForm}/>
             <Route path='/users/:id' render={ props => {
               if (this.props.users) {
                 let user = this.props.users.find(u => u.id === Number.parseInt(props.match.params.id))

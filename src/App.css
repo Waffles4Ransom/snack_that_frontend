@@ -1,6 +1,9 @@
 .App {
   text-align: center;
   padding-bottom: 18px;
+  /* font-family: 'Francois One', sans-serif; */
+  /* font-family: 'Righteous', cursive; */
+  font-family: 'Varela Round', sans-serif;
 }
 
 .nav {
@@ -8,9 +11,17 @@
   overflow: hidden;
 }
 
-a {
-  text-decoration: none;
-  font-weight: bolder;
+.nal_font {
+  font-family: Nalotta;
+  font-size: 4em;
+}
+
+.nal_font.big {
+  font-size: 8em;
+}
+
+.snackIcons {
+  padding-top: 2.5em;
 }
 
 /* NavBar Styling */
@@ -29,9 +40,10 @@ a {
 }
 
 .nav .link:hover {
-  /* background-color: #ddd; */
+  /* background-color: #ddd;
+  color: black; */
   background-color: #FED250;
-  color: black;
+  color: ghostwhite;
 }
 
 /* FORM STYLING  */
@@ -45,6 +57,7 @@ input[type=text], [type=password] {
   border-bottom: 4px solid black;
   display: block;
   outline: none;
+  font-family: 'Varela Round', sans-serif;
 }
 
 input[type=text]:focus, [type=password]:focus {
@@ -63,7 +76,7 @@ button {
 }
 
 button:hover {
-  background-color: purple;
+  background-color: midnightblue;
 }
 
 .error {
@@ -96,7 +109,8 @@ button:hover {
 }
 
 .snackcard:hover {
-  border: mediumorchid solid 6px;
+  /* border: mediumorchid solid 6px; */
+  border: #FED250 solid 6px;
 }
 
 .snackImg {
@@ -134,7 +148,9 @@ button:hover {
   box-shadow: 8px 10px 10px slategray;
   margin: 2% 10%;
   padding: 5px;
-  background-color: mistyrose;
+  /* background-color: mistyrose; */
+  background-color: cornsilk;
+  /* background-color: rgb(210, 243, 252); */
 }
 
 .snack_title {
@@ -187,13 +203,14 @@ button:hover {
   margin-left: 30%;
   margin-right: 30%;
   padding-bottom: 10px;
+  font-family: Nalotta;
+  font-size: 3em;
 }
 
 .reviewcard {
   border: solid black 6px;
   border-radius: 4px;
   box-shadow: 8px 10px 10px slategray;
-  /* height: 280px; */
   width: 180px;
   padding: 10px;
   margin: 20px;
