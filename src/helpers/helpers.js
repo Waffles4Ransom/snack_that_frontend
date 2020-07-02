@@ -24,3 +24,7 @@ export const renderDate = user => {
   let joinDate = new Date(user.created_at), options = {year: 'numeric', month: 'long' }
   return joinDate.toLocaleString('en-US', options)
 }
+
+export const notLoggedIn = user => {
+  return user.message || user.error || user.errors
+}
