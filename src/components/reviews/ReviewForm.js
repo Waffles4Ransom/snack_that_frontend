@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { addReviewToSnack } from '../actions/snackActions'
+import { addReviewToSnack } from '../../actions/snackActions'
 
 class ReviewForm extends Component {
   constructor() {

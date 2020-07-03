@@ -1,5 +1,5 @@
 import React from 'react'
-import ReviewForm from '../ReviewForm'
+import ReviewForm from '../reviews/ReviewForm'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { deleteSnack, deleteReview } from '../../actions/snackActions'

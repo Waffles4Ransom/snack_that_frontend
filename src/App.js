@@ -79,7 +79,6 @@ class App extends Component {
                 return <Snack {...props} snack={snack} user={this.props.currentUser} />}
               }
             }/>
-
             <Route path='/snacks'>
               <Snacks snacks={this.props.snacks} user={this.props.currentUser}/>
             </Route>
