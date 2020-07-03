@@ -10,7 +10,7 @@ const UserCardBack = ({ user, handleClick}) => {
       <h5>Hometown: {user.location}</h5>
       <h5>{user.username}'s review count:</h5>
       <strong>{user.reviews.length}</strong>
-      <p><Link to={`/users/${user.id}`}><button>See Profile</button></Link></p>
+      <p><Link to={`/users/${user.id}`}><button>View {user.username}'s Profile</button></Link></p>
     </div>
   )
 }

@@ -21,7 +21,7 @@ const LogIn = ({ login, currentUser, history }) => {
 
   return(
     <>
-      <h4>Snacker Log In</h4>
+      <h2 className='nal_font'>Snacker Log In</h2>
       {renderErrors()}
       <Form 
         submitCallback={handleSubmit}

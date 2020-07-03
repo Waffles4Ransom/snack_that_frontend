@@ -19,7 +19,7 @@ import Profile from './components/users/Profile'
 import LogIn from './components/LogIn'
 import SignUp from './components/SignUp'
 import SnackForm from './components/snacks/SnackForm'
-
+import NotFound from './components/NotFound'
 
 
 class App extends Component {
@@ -83,6 +83,7 @@ class App extends Component {
             <Route path='/snacks'>
               <Snacks snacks={this.props.snacks} user={this.props.currentUser}/>
             </Route>
+            <Route component={NotFound} />
           </Switch>
         </div>
       </Router>
