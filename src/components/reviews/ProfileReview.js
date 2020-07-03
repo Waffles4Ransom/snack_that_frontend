@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const ProfileReview = ({ review }) => (
-  <div key={review.id} className='reviewcard'>
+  <div className='reviewcard'>
     <h4>{review.snackname}</h4>
       <p><strong>Comment:</strong></p>
       <p>"{review.content}"</p>

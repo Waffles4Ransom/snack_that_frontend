@@ -11,7 +11,7 @@ const Profile = ({ user, currentUser }) => {
       <>
         <h2 className='prof_title'>{user.id === currentUser.id ? 'My Reviews' : `${user.username}'s Reviews`}</h2>
           <div className='flex-container'>
-            {user.reviews.length > 0 ? user.reviews.map(r => <ProfileReview review={r}/>) : 'No Reviews Yet!!'}
+            {user.reviews.length > 0 ? user.reviews.map(r => <ProfileReview review={r} key={r.id}/>) : 'No Reviews Yet!!'}
           </div>
       </>
     )

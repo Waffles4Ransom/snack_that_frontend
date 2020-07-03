@@ -67,7 +67,6 @@ export function createSnack(formData, history) {
 }
 
 export function addReviewToSnack(formData, history) {
-  console.log(history)
   let newReview = {
     content: formData.content,
     rating: formData.rating,
@@ -91,7 +90,8 @@ export function addReviewToSnack(formData, history) {
       // let snack = await res.json()
       // dispatch(getSnacks(snacks))
     } catch(err) {
-      alert(err)
+      let msg = await err.json()
+      alert(msg.error)
     }
   }
 }
