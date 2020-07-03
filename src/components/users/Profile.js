@@ -1,6 +1,7 @@
 import React from 'react'
 import { renderDate } from '../../helpers/helpers'
 import { Link } from 'react-router-dom'
+import ProfileIcon from './ProfileIcon'
 
 const Profile = ({ user, currentUser }) => {
 
@@ -48,6 +49,8 @@ const Profile = ({ user, currentUser }) => {
         <h3>Hometown: {user.location}</h3>
         <h4>Joined: {renderDate(user)}</h4>
         <h4>Snack Count: {user.reviews.length}</h4>
+        <br/>
+        <ProfileIcon />
         {/* {props.user.id === props.currentUser.id ? <Link to={`/users/${props.user.id}/edit`}><button>Edit Profile</button></Link> : null} */}
       </div>
       </>
@@ -57,7 +60,7 @@ const Profile = ({ user, currentUser }) => {
   return( 
     <>
       <div className='grid-container profile'>
-        {user ? renderUser(user) : "No Snacker Found!" } 
+        {user ? renderUser(user) : <h1>No Snacker Found!</h1> } 
       </div>
       {user ? addFirstReview() : null }
       {user ? listReviews() : null }
