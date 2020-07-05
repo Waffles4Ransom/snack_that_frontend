@@ -7,10 +7,10 @@ import { fetchUsers, setCurrentUser, logout } from './actions/userActions'
 import { 
   BrowserRouter as Router,
   Route,
-  Switch,
-  Link
+  Switch
 } from 'react-router-dom'
 
+import Navbar from './components/Navbar'
 import Home from './components/Home'
 import Snacks from './components/snacks/Snacks'
 import Snack from './components/snacks/Snack'
@@ -30,34 +30,11 @@ class App extends Component {
     this.props.setCurrentUser()
   }
 
-  renderUserNavs() {
-    if (this.props.currentUser.hasOwnProperty('id')) {
-      return(
-        <>
-          <Link to='/' onClick={() => this.props.logout()} className='link right'>LOG OUT</Link>
-          <Link to={`/users/${this.props.currentUser.id}`} className='link right'>MY PROFILE</Link>
-        </>
-      ) 
-    } else {
-      return (
-        <>
-          <Link to="/login" className='link right'>LOG IN</Link>
-          <Link to="/signup" className='link right'>SIGN UP</Link>
-        </>
-      )
-    }
-  }
-
   render() {
     return (
       <Router> 
         <div className="App">
-          <div className='nav'>
-            <Link to="/" className='link'>SNACK THAT</Link>
-            <Link to="/snacks" className='link'>SNACKS</Link>
-            <Link to="/users" className='link'>SNACKERS</Link>
-            {this.renderUserNavs()}
-          </div> 
+          <Navbar user={this.props.currentUser} logout={this.props.logout} />
 
           <Switch>
             <Route exact path='/' component={Home} />
