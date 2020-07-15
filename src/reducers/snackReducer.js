@@ -5,7 +5,9 @@ export default function snackReducer(state = [], action) {
     case GET_SNACKS:
       return [...state.concat(action.snacks)]
     case ADD_SNACK:
-      return [...state.concat(action.snack)]  
+      let newArr = state.slice()
+      newArr.splice(0, 0, action.snack)
+      return newArr
     case REMOVE_SNACK:
       return [...state.filter(snack => snack.id !== action.id)]
     default:
