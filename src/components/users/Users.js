@@ -1,5 +1,6 @@
 import React from 'react'
 import UserCardContainer from '../../containers/UserCardContainer'
+import { connect } from 'react-redux'
 
 const Users = ({ users }) => {
   
@@ -18,4 +19,8 @@ const Users = ({ users }) => {
   )
 }
 
-export default Users
+const mapStateToProps = state => ({
+  users: state.users
+})
+
+export default connect(mapStateToProps)(Users)

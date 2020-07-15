@@ -47,18 +47,14 @@ class App extends Component {
                 return <Profile {...props} user={user} currentUser={this.props.currentUser} />}
               } 
             }/>
-            <Route path='/users'>
-              <Users users={this.props.users}/>
-            </Route> 
+            <Route path='/users' component={Users}/>
             <Route path='/snacks/:id' render={ props => {
               if (this.props.snacks) {
                 let snack = this.props.snacks.find(s => s.id === Number.parseInt(props.match.params.id))
                 return <Snack {...props} snack={snack} user={this.props.currentUser} />}
               }
             }/>
-            <Route path='/snacks'>
-              <Snacks snacks={this.props.snacks} user={this.props.currentUser}/>
-            </Route>
+            <Route path='/snacks' component={Snacks}/> 
             <Route component={NotFound} />
           </Switch>
         </div>
