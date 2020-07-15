@@ -131,6 +131,10 @@ button:hover {
   max-width: 200px;
 }
 
+.snackcardBtn {
+  margin: 1em;
+}
+
 /* SNACK PROFILE PAGE */
 
 .snackProfileImg {
