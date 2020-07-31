@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { createSnack } from '../../actions/snackActions'
+import countryList from 'react-select-country-list'
 
 class SnackForm extends Component {
 
@@ -17,27 +18,7 @@ class SnackForm extends Component {
   }
 
   renderCountryOpts() {
-    let options = [
-      "Australia",
-      "Belgium",
-      "Brazil",
-      "Canada",
-      "Czech Republic",
-      "China",
-      "France",
-      "Germany",
-      "India",
-      "Japan",
-      "Mexico",
-      "Netherlands",
-      "Philippines",
-      "Spain",
-      "South Korea",
-      "Sweden",
-      "Thailand",
-      "United Kingdom",
-      "United States"
-    ]
+    let options = countryList().getLabels()
     return options.map(o => <option key={o} value={o}>{o}</option>)
   }
 

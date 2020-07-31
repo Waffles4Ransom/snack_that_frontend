@@ -88,7 +88,7 @@ export function addReviewToSnack(formData, history) {
       }
       return history.go()
       // let snack = await res.json()
-      // dispatch(getSnacks(snacks))
+      // dispatch(updateSnack(snack))
     } catch(err) {
       let msg = await err.json()
       alert(msg.error)
