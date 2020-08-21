@@ -40,7 +40,7 @@ class SnackForm extends Component {
     ]
     return options.map( o => (
       <label key={o}>
-        <input key={o} type="checkbox" name={o} value={o} onChange={this.handleCategories} />{" "}
+        <input key={o} type="checkbox" name={o} value={o} checked={null} onChange={this.handleCategories} />{" "}
         {o.charAt(0).toUpperCase() + o.slice(1)}
       </label>
     ))
@@ -54,11 +54,17 @@ class SnackForm extends Component {
 
   handleCategories = e => {
     const value = e.target.value
-    const newVal = [...this.state.categories]
-    newVal.push(value)
+    const currentVals = [...this.state.categories]
+    if (e.target.checked === false) {
+      const removeVal = currentVals.filter( val => val !== value)
+      this.setState({
+        categories: removeVal
+      })
+    } else {
+    currentVals.push(value)
     this.setState({
-      categories: newVal
-    })
+      categories: currentVals
+    })}
   }
 
   handleSubmit = (e) => {
