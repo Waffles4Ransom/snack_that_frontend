@@ -2,6 +2,8 @@
 
 Snack That is a web application for serious snack lovers to log and review snack foods from around the world.
 
+<img src="public/cat_tongues.png" alt="Snack Review Page" width=750><br>
+
 This app is dependent on the Snack That API backend, to be run in conjunction: <a href='https://github.com/Waffles4Ransom/snack_that_backend'>https://github.com/Waffles4Ransom/snack_that_backend</a>
 
 ## Features 
