@@ -2,8 +2,9 @@
   text-align: center;
   padding-bottom: 18px;
   /* font-family: 'Francois One', sans-serif; */
-  /* font-family: 'Righteous', cursive; */
-  font-family: 'Varela Round', sans-serif;
+  /* font-family: 'Varela Round', sans-serif; */
+  font-family: 'Roboto Condensed', sans-serif;
+  min-height: 100vh;
 }
 
 .nav {
@@ -42,7 +43,7 @@
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 22px;
 }
 
 .nav .link.right {
@@ -52,7 +53,7 @@
 .nav .link:hover {
   /* background-color: #ddd;
   color: black; */
-  background-color: #FED250;
+  background-color: #f694d9;
   color: ghostwhite;
 }
 
@@ -67,11 +68,11 @@ input[type=text], [type=password] {
   border-bottom: 4px solid black;
   display: block;
   outline: none;
-  font-family: 'Varela Round', sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 input[type=text]:focus, [type=password]:focus {
-  background-color: rgb(248, 192, 169);
+  background-color: rgb(221, 220, 219);
 }
 
 button {
@@ -83,11 +84,13 @@ button {
   text-decoration: none;
   margin: 8px 2px;
   cursor: pointer;
-  font-family: 'Varela Round', sans-serif;
+  /* font-family: 'Varela Round', sans-serif; */
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 1em;
 }
 
 button:hover {
-  background-color: midnightblue;
+  background-color: #f694d9;
 }
 
 .error {
@@ -120,8 +123,8 @@ button:hover {
 }
 
 .snackcard:hover {
-  /* border: mediumorchid solid 6px; */
-  border: #FED250 solid 6px;
+  border: grey solid 6px;
+  /* border: #f694d9 solid 6px; */
 }
 
 .snackImg {
@@ -163,8 +166,7 @@ button:hover {
   box-shadow: 8px 10px 10px slategray;
   margin: 2% 10%;
   padding: 5px;
-  /* background-color: mistyrose; */
-  background-color: cornsilk;
+  background-color: lightgray;
   /* background-color: rgb(210, 243, 252); */
 }
 
@@ -191,7 +193,6 @@ button:hover {
   max-width: 200px;
   border-radius: 6px;
 }
-
 
 /* USER PROFILE PAGE  */
 
@@ -230,8 +231,7 @@ button:hover {
   padding: 10px;
   margin: 20px;
   color: black;
-  /* background-color: rgb(231, 252, 252); */
-  background-color: cornsilk;
+  background-color: rgb(228, 228, 228);
 }
 
 

@@ -1,8 +1,6 @@
 import React from 'react'
 
-
 const NotFound = () => {
-
   const za = require('../assets/Pizza256px.png')
 
   return (
