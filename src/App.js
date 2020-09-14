@@ -20,7 +20,7 @@ import LogIn from './components/LogIn'
 import SignUp from './components/SignUp'
 import SnackForm from './components/snacks/SnackForm'
 import NotFound from './components/NotFound'
-
+import Footer from './components/Footer'
 
 class App extends Component {
 
@@ -58,6 +58,7 @@ class App extends Component {
             <Route component={NotFound} />
           </Switch>
         </div>
+          <Footer />
       </Router>
     )
   }

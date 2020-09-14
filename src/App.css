@@ -35,6 +35,15 @@
   padding-top: 2.5em;
 }
 
+footer {
+  opacity: 0.4;
+  font-size: .75em;
+  margin-top: 4em;
+  flex: 1;
+  font-family: 'Roboto Condensed', sans-serif;
+  text-align: center;
+}
+
 /* NavBar Styling */
 
 .nav .link {
